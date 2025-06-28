@@ -21,7 +21,7 @@ const pets = [
     service: "Nail Trim, Vaccination",
     breed: "Unknown"
   }
-];
+]
 
 // Display number of pets
 function displayPetCount() {
