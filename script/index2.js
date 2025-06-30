@@ -23,6 +23,8 @@ const pets = [
   }
 ]
 
+console.log(pets)
+
 // Display number of pets
 function displayPetCount() {
   document.getElementById("count").textContent = pets.length;

@@ -1,0 +1,16 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f0f8ff;
+}
+
+#pet-list {
+  margin-top: 20px;
+}
+
+.pet {
+  border: 1px solid #aaa;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
