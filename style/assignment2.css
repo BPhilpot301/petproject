@@ -1,16 +1,34 @@
 body {
   font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: #f0f8ff;
+  margin: 20px;
+  background-color: #f8f8f8;
+  color: #333;
 }
 
-#pet-list {
-  margin-top: 20px;
+h1, h2 {
+  color: #005f73;
 }
 
-.pet {
-  border: 1px solid #aaa;
-  padding: 10px;
-  margin-bottom: 10px;
+form {
+  margin-bottom: 20px;
   background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input, select, button {
+  margin: 5px;
+  padding: 10px;
+  width: 180px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#pet-list .pet-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 6px;
 }

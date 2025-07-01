@@ -1,24 +1,22 @@
-// Object literal for the salon
+// Object Literal
 const salon = {
   name: "Fashion Pet",
+  phone: "123-456-7890",
   address: {
-    street: "918 Pet Ave.",
-    city: "Oklahoma"
+    street: "123 Main St",
+    city: "Petville"
   },
-  hours: {
-    open: "9:00am",
-    close: "5:00pm"
-  }
+  pets: []
 };
 
-// Show salon info
+// Display salon info
 document.getElementById("salon-info").innerHTML = `
-  <p><strong>${salon.name}</strong></p>
-  <p>${salon.address.street}, ${salon.address.city}</p>
-  <p>Hours: ${salon.hours.open} - ${salon.hours.close}</p>
+  <p><strong>${salon.name}</strong><br>
+  ${salon.address.street}, ${salon.address.city}<br>
+  Phone: ${salon.phone}</p>
 `;
 
-// Pet constructor
+// Constructor
 function Pet(name, age, gender, breed, service, type) {
   this.name = name;
   this.age = age;
@@ -28,27 +26,37 @@ function Pet(name, age, gender, breed, service, type) {
   this.type = type;
 }
 
-// Create pet objects
-let pet1 = new Pet("Buddy", 2, "Male", "Golden Retriever", "Grooming", "Dog");
-let pet2 = new Pet("Whiskers", 3, "Female", "Siamese", "Nail Trim", "Cat");
-let pet3 = new Pet("Spike", 5, "Male", "Bulldog", "Vaccination", "Dog");
+// Create 3 pets
+const pet1 = new Pet("Buddy", 3, "Male", "Golden Retriever", "Grooming", "Dog");
+const pet2 = new Pet("Mittens", 2, "Female", "Siamese", "Vaccination", "Cat");
+const pet3 = new Pet("Rex", 5, "Male", "Bulldog", "Nail Trim", "Dog");
 
-let pets = [pet1, pet2, pet3];
+// Add them to salon
+salon.pets.push(pet1, pet2, pet3);
 
 // Display pets
 function displayPets() {
   const petList = document.getElementById("pet-list");
-  pets.forEach(pet => {
+  petList.innerHTML = "";
+  salon.pets.forEach((pet, index) => {
     petList.innerHTML += `
-      <div class="pet">
-        <p><strong>${pet.name}</strong> (${pet.gender}, ${pet.age} yrs)</p>
-        <p>Breed: ${pet.breed}</p>
-        <p>Service: ${pet.service}</p>
-        <p>Type: ${pet.type}</p>
+      <div class="pet-card">
+        <p><strong>${pet.name}</strong> (${pet.gender}, ${pet.age} yrs)<br>
+        ${pet.service} - ${pet.breed} (${pet.type})</p>
       </div>
     `;
   });
 }
 
-displayPets();
+// Register pet
+document.getElementById("pet-form").addEventListener("submit", function(event)) {
+  event.preventDefault();
+  const name = document.getElementById("name").value;
+  const age = parseInt(document.getElementById("age").value);
+  const gender = document.getElementById("gender").value;
+  const breed = document.getElementById("breed").value;
+  const service = document.getElementById("service").value;
+  const type = document.getElementById("type").value;
 
+  const newPet = new Pet(name, age, gender, breed, service)
+}
