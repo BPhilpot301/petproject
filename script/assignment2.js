@@ -3,20 +3,23 @@ const salon = {
   name: "Fashion Pet",
   phone: "123-456-7890",
   address: {
-    street: "123 Main St",
-    city: "Petville"
+    street: "123 Pet St",
+    city: "Pawville"
   },
-  pets: []
+  hours: {
+    open: "9:00 AM",
+    close: "5:00 PM"
+  }
 };
 
-// Display salon info
+// Display Salon Info
 document.getElementById("salon-info").innerHTML = `
-  <p><strong>${salon.name}</strong><br>
-  ${salon.address.street}, ${salon.address.city}<br>
-  Phone: ${salon.phone}</p>
+  <p>Welcome to <strong>${salon.name}</strong>!</p>
+  <p>Location: ${salon.address.street}, ${salon.address.city}</p>
+  <p>Hours: ${salon.hours.open} - ${salon.hours.close}</p>
 `;
 
-// Constructor
+// Pet Constructor
 function Pet(name, age, gender, breed, service, type) {
   this.name = name;
   this.age = age;
@@ -26,37 +29,92 @@ function Pet(name, age, gender, breed, service, type) {
   this.type = type;
 }
 
-// Create 3 pets
-const pet1 = new Pet("Buddy", 3, "Male", "Golden Retriever", "Grooming", "Dog");
-const pet2 = new Pet("Mittens", 2, "Female", "Siamese", "Vaccination", "Cat");
-const pet3 = new Pet("Rex", 5, "Male", "Bulldog", "Nail Trim", "Dog");
+// Store pets
+const pets = [];
 
-// Add them to salon
-salon.pets.push(pet1, pet2, pet3);
+// Handle form submit
+document.getElementById("pet-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("petName").value;
+  const age = document.getElementById("petAge").value;
+  const gender = document.getElementById("petGender").value;
+  const breed = document.getElementById("petBreed").value;
+  const service = document.getElementById("petService").value;
+  const type = document.getElementById("petType").value;
+
+  const newPet = new Pet(name, age, gender, breed, service, type);
+  pets.push(newPet);
+
+  displayPets();
+  this.reset();
+  console.log(newPet);
+});
+
+// Handle Clear Button
+document.getElementById("clearBtn").addEventListener("click", function() {
+  document.getElementById("pet-form").reset();
+});
 
 // Display pets
 function displayPets() {
   const petList = document.getElementById("pet-list");
   petList.innerHTML = "";
-  salon.pets.forEach((pet, index) => {
+
+  pets.forEach((pet) => {
     petList.innerHTML += `
-      <div class="pet-card">
-        <p><strong>${pet.name}</strong> (${pet.gender}, ${pet.age} yrs)<br>
-        ${pet.service} - ${pet.breed} (${pet.type})</p>
-      </div>
+      <p><strong>${pet.name}</strong> (${pet.gender}, ${pet.age} yrs) - ${pet.service} [${pet.breed}, ${pet.type}]</p>
     `;
+    console.log(petList);
   });
 }
 
-// Register pet
-document.getElementById("pet-form").addEventListener("submit", function(event)) {
-  event.preventDefault();
-  const name = document.getElementById("name").value;
-  const age = parseInt(document.getElementById("age").value);
-  const gender = document.getElementById("gender").value;
-  const breed = document.getElementById("breed").value;
-  const service = document.getElementById("service").value;
-  const type = document.getElementById("type").value;
+// Create 3 starter pets
+pets.push(
+  new Pet("River", 1, "Male", "Half Husky, Half Corgi", "Grooming", "Dog"),
+  new Pet("Annie May", 10, "Female", "Jack Russel", "Vaccination", "Dog"),
+  new Pet("Jasper", 8, "Male", "Unknow Mix", "Nail Trim", "Dog")
+);
+displayPets();
 
-  const newPet = new Pet(name, age, gender, breed, service)
+
+function registerPet() {
+  // Get form values
+  let name = document.getElementById("petName").value;
+  let age = document.getElementById("petAge").value;
+  let gender = document.getElementById("petGender").value;
+  let breed = document.getElementById("petBreed").value;
+  let service = document.getElementById("petService").value;
+  let type = document.getElementById("petType").value;
+
+  // Create pet card container
+  let petCard = document.createElement("div");
+  petCard.className = "pet-card";
+
+  // Create image element
+  let img = document.createElement("img");
+  img.src = `images/${name.toLowerCase()}.jpg`;
+  img.alt = `${name} the pet`;
+  img.className = "pet-image";
+
+  // Create paragraph for pet info
+  let petInfo = document.createElement("p");
+  petInfo.innerHTML = `<strong>${name}</strong> (${gender}, ${age} yrs) - ${service} [${breed}, ${type}]`;
+
+  // Append elements to pet card
+  petCard.appendChild(img);
+  petCard.appendChild(petInfo);
+
+  // Append pet card to the registered pets section
+  document.getElementById("registeredPets").appendChild(petCard);
 }
+
+
+
+
+
+
+
+
+
+

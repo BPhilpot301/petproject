@@ -1,15 +1,35 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background-color: #f8f8f8;
-  color: #333;
+  font-family: 'Poppins', sans-serif;
 }
 
-h1, h2 {
-  color: #005f73;
+
+/* Button Enhancements */
+button {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-form {
+button:hover {
+  background-color: #004d40;
+}
+
+/* Registered Pets Section */
+#registeredPets {
+  background-color: #ffffffcc;
+  padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual Pet Card */
+.pet-card {
+  text-align: center;
+  background-color: #f1f8f9;
   margin-bottom: 20px;
   background-color: #fff;
   padding: 15px;
@@ -28,7 +48,74 @@ input, select, button {
 #pet-list .pet-card {
   background-color: #ffffff;
   border: 1px solid #ddd;
-  margin: 10px 0;
-  padding: 10px;
-  border-radius: 6px;
+  border-radius: 10px;
+}
+
+/* Pet Image */
+.pet-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #00796b;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+/*Tablet View*/
+
+@media((min-width: 601px) and (max-width: 798px)) {
+    .about-container {
+        flex-direction: column;
+        text-align: justify;
+    }
+
+    .about-container div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-container img {
+        width: 20%;
+    }
+
+    .houses-container {
+        flex-direction: column;
+    }
+
+    .houses-item {
+        margin: 10px 0px;
+    }
+}
+
+/*Phone View*/
+
+@media((max-width: 600px)) {
+    .about-container {
+        flex-direction: column;
+        text-align: justify;
+    }
+
+    .about-container div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-container img {
+        width: 40%;
+    }
+
+    .houses-container {
+        flex-direction: column;
+    }
+
+    .houses-item {
+        margin: 10px 0px;
+    }
 }
