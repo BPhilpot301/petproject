@@ -9,14 +9,16 @@ const salon = {
   hours: {
     open: "9:00 AM",
     close: "5:00 PM"
-  }
-};
+  },
+  owner: "Britney Philpot"
+}
 
 // Display Salon Info
 document.getElementById("salon-info").innerHTML = `
-  <p>Welcome to <strong>${salon.name}</strong>!</p>
+  <p> Welcome to <strong>${salon.name}</strong>!</p>
   <p>Location: ${salon.address.street}, ${salon.address.city}</p>
   <p>Hours: ${salon.hours.open} - ${salon.hours.close}</p>
+  <p>Owner: ${salon.owner}</p>
 `;
 
 // Pet Constructor
@@ -28,6 +30,8 @@ function Pet(name, age, gender, breed, service, type) {
   this.service = service;
   this.type = type;
 }
+
+
 
 // Store pets
 const pets = [];
@@ -78,7 +82,7 @@ pets.push(
 displayPets();
 
 
-function registerPet() {
+function registerPet(event) {
   // Get form values
   let name = document.getElementById("petName").value;
   let age = document.getElementById("petAge").value;
@@ -87,17 +91,32 @@ function registerPet() {
   let service = document.getElementById("petService").value;
   let type = document.getElementById("petType").value;
 
-  // Create pet card container
+  console.log(newPet);
+
+  // pet card container
+
   let petCard = document.createElement("div");
   petCard.className = "pet-card";
 
-  // Create image element
+  petList.innerHTML += `
+    <div class="pet-card">
+    <h3> ${newPet.name}</h3>
+    <p> ${newPet.age} </p>
+    <p> ${newPet.gender} </p>
+    <p> ${newPet.breed} </p>
+    <p> ${newPet.service} </p>
+    <p> ${newPet.type} </p>
+    </div>
+  
+  `;
+
+  // image element
   let img = document.createElement("img");
   img.src = `images/${name.toLowerCase()}.jpg`;
   img.alt = `${name} the pet`;
   img.className = "pet-image";
 
-  // Create paragraph for pet info
+  // paragraph for pet info
   let petInfo = document.createElement("p");
   petInfo.innerHTML = `<strong>${name}</strong> (${gender}, ${age} yrs) - ${service} [${breed}, ${type}]`;
 

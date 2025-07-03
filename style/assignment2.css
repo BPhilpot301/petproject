@@ -31,7 +31,7 @@ button:hover {
   text-align: center;
   background-color: #f1f8f9;
   margin-bottom: 20px;
-  background-color: #fff;
+  background-color: #455cdd;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -59,7 +59,7 @@ input, select, button {
   border-radius: 50%;
   margin-bottom: 10px;
   border: 2px solid #00796b;
-  display: block;
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
 
