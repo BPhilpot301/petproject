@@ -1,105 +1,70 @@
-//alert("Hello from JavaScript!")
-
-//Tracking clicks
-//function trackingClicks(){
-  //  console.log("Click");
-//}
-
-//function changingText(){
-  //    document.getElementById("textField").textContent = "Yes, I am here!"
-//}
-
-//function happyMood(){
-  // document.getElementById("moodText").textContent = "I'm feeling happy!"
-//}
-
-//function sadMood(){
-  //  document.getElementById("moodText").textContent = "I'm feeling sad..."
-//}
-
-//function excitedMood(){
-  //  document.getElementById("moodText").textContent = "I'm feeling excited!"
-//}
-
-function moodChanger(mood){
-    let moodText = document.getElementById("moodText");
-    let message = "";
-
-    if (mood == "happy"){
-        message = "I am Feeling Happy"
-    }else if(mood == "sad"){
-        message = "I am feeling sad"
-    }else if(mood == "excited"){
-        message = "I am feeeling excited!"
-    }
-
-    moodText.textContent = message;
+const salon = {
+  name: "Fashion Pet",
+  phone: "123-456-7890",
+  address: {
+    street: "123 Pet St",
+    city: "Pawville"
+  },
+  hours: {
+    open: "9:00 AM",
+    close: "5:00 PM"
+  },
+  owner: "Britney Philpot"
 }
 
-//Creating Arrays
-// let arrayName = ["value1", "value2", "on and on"];
+// Display Salon Info
+document.getElementById("salon-info").innerHTML = `
+  <p> Welcome to <strong>${salon.name}</strong>!</p>
+  <p>Location: ${salon.address.street}, ${salon.address.city}</p>
+  <p>Hours: ${salon.hours.open} - ${salon.hours.close}</p>
+  <p>Owner: ${salon.owner}</p>
+`;
 
-let fruits = ["banana", "apple", "orange","avocado"];
-    
-//console.log(fruits[0]);
-//console.log(fruits[1]);
-//console.log(fruits[2]);
-//console.log(fruits[3]);
-//console.log(fruits);
-
-//console.log(fruits.length);
-
-//user a for loop to print all the values in the fruits array
-//add to end
-fruits.push("watermelon");
-//add to beginning
-fruits.unshift("grapes");
-//removing
-fruits.pop();
-//removing certain 
-fruits.splice(1,1);
-
-for(let i=0; i<fruits.length; i++){
-    console.log(fruits[i]);
+displaySalonInformation();
+function Pet(name, age, gender, service,breed,type){
+  this.name = name,
+  this.age = age,
+  this.gender = gender,
+  this.service = service,
+  this.breed = breed,
+  this.type = type
 }
 
-//objects
-//Is a collection of attributes that represents an entity
-//key and a value
-//person
-//name - britney
-//age - 30
-
-//let person = {
-  //  name: "Britney",
-    //age: 35,
-    //lastName: "Philpot",
-    //isStudent: true
-//}
-
-//console.log(person.name);
-//console.log(person[`age`]);
-
-//let pet = {
-  //  name: "River",
-   // age: 1,
-    //gender: "Male",
-
-//}
-
-//console.log(pet.name);
-//console.log(pet.age);
-//console.log(pet.gender);
+const pet4 = new Pet("Lola", 5, "Female", "Nail Trim", "Golden Doodle", "Dog");
+const pet5 = new Pet("Max", 1, "Male", "Vaccination", "Bulldog", "Dog");
+const pet6 = new Pet("Sir Flufferton", 7, "Male", "Grooming", "Egyptian Mau", "Cat");
 
 
-let student = {
-    name: "Britney",
-    age: 35,
-    gender: "female",
+function registerPet(event){
+  event.preventDefault();
+
+  const name = petRegistrationForm.elements["petName"].value;
+  const age = petRegistrationForm.elements["petAge"].value;
+  const gender = petRegistrationForm.elements["petGender"].value;
+  const service = petRegistrationForm.elements["petService"].value;
+  const breed = petRegistrationForm.elements["petBreed"].value;
+  const type = petRegistrationForm.elements["petType"].value;
 }
 
-console.log(student.name);
-console.log(student.age);
-console.log(student.gender);
+const newPet = new Pet(name, age, gender, service, breed, type);
 
-let student1 = []
+console.log(newPet);
+
+displayPet(newPet);
+
+petRegistrationForm.reset();
+
+function displayPet(pet){
+  PerformanceObserverEntryList.innerHTML += `
+  <div class="pet-card">
+
+    <h3> Name: ${pet.name} </h3>
+    <p> Age: ${pet.age} </p>
+    <p> Gender: ${pet.gender} </p>
+    <p> Service: ${pet.service} </p>
+    <p>Breed: ${pet.breed} </p>
+    <p>Type: ${pet.type} </p>
+
+  </div>
+  `;
+}
