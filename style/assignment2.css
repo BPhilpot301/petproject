@@ -1,3 +1,32 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #004d40;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color:aquamarine;
+}
+
+button.delete-btn{
+  background-color: gray;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button.delet-btn:hover{
+  background-color: #ccc;
+}
+
+
 body {
   font-family: 'Poppins', sans-serif;
 }
@@ -27,6 +56,16 @@ button:hover {
 }
 
 /* Individual Pet Card */
+
+form {
+  background-color: #fff;
+  padding: 20px;
+  margin: 0 auto 30px;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
 .pet-card {
   text-align: center;
   background-color: #f1f8f9;
