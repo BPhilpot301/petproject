@@ -1,3 +1,18 @@
+.site-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #ccc;
+}
+
+.header-logo {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  
+}
+
 
 
 button.delet-btn:hover{
@@ -70,16 +85,14 @@ form {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
+.pet-gallery {
+  display: flex;
+  flex-wrap: wrap; /* Optional: allows them to wrap on small screens */
+  gap: 20px; /* Optional: adds space between items */
+}
+
 .pet-card {
-  background-color: gray;
-  border: 1 px solid #ccc;
-  border-radius: 12px;
-  padding: 20px;
-  margin: 15px;
-  width: 250px;
-  box-shadow: 0 px 10px rgba(0, 0, 0, 1);
-  display: inline-block;
-  vertical-align: top;
+  width: 200px; /* Set a width to control the size of each card */
 }
 
 input, select, button {
