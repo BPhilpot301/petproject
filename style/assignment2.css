@@ -1,26 +1,4 @@
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
 
-th, td {
-  border: 1px solid #004d40;
-  padding: 10px;
-  text-align: left;
-}
-
-th {
-  background-color:aquamarine;
-}
-
-button.delete-btn{
-  background-color: gray;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-}
 
 button.delet-btn:hover{
   background-color: #ccc;
@@ -39,6 +17,32 @@ button {
   border: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
+}
+
+button.edit-btn,
+button.delete-btn{
+margin: 5px;
+padding: 8px 12 px;
+border: none;
+border-radius: 6px;
+color: whitesmoke;
+cursor: pointer;
+}
+
+button.edit-btn{
+  background-color: blue;
+}
+
+button.edit-btn:hover{
+  background-color: aquamarine;
+}
+
+button.delete-btn{
+  background-color: #dc3545;
+}
+
+button.delete-btn{
+  background-color: #a71d2a;
 }
 
 button:hover {
@@ -67,13 +71,15 @@ form {
 }
 
 .pet-card {
-  text-align: center;
-  background-color: #f1f8f9;
-  margin-bottom: 20px;
-  background-color: #455cdd;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: gray;
+  border: 1 px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px;
+  width: 250px;
+  box-shadow: 0 px 10px rgba(0, 0, 0, 1);
+  display: inline-block;
+  vertical-align: top;
 }
 
 input, select, button {
@@ -103,6 +109,16 @@ input, select, button {
   margin-right: auto;
 
 }
+
+#registeredPets{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+
+
 
 
 /*Tablet View*/

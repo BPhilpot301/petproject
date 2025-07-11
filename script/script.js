@@ -1,3 +1,4 @@
+// Object Literal
 const salon = {
   name: "Fashion Pet",
   phone: "123-456-7890",
@@ -12,135 +13,100 @@ const salon = {
   owner: "Britney Philpot"
 }
 
-// Display Salon Info
-document.getElementById("salon").innerHTML = `
-  <p> Welcome to <strong>${salon.name}</strong>!</p>
-  <p>Location: ${salon.address.street}, ${salon.address.city}</p>
-  <p>Hours: ${salon.hours.open} - ${salon.hours.close}</p>
-  <p>Owner: ${salon.owner}</p>
-`;
-
-function displaySalonInformation() {
-  // Function body can be implemented here if needed
-}
-function Pet(name, age, gender, service,breed,type){
-  this.name = name,
-  this.age = age,
-  this.gender = gender,
-  this.service = service,
-  this.breed = breed,
-  this.type = type
+// Function to display salon info
+function displaySalonInfo() {
+  const salonDiv = document.getElementById("salonInfo");
+  salonDiv.innerHTML = `
+    <h2>${salon.name}</h2>
+    <p><strong>Phone:</strong> ${salon.phone}</p>
+    <p><strong>Address:</strong> ${salon.address.street}, ${salon.address.city}</p>
+    <p><strong>Hours:</strong> ${salon.hours.open} - ${salon.hours.close}</p>
+    <p><strong>Owner:</strong> ${salon.owner}</p>
+  `;
 }
 
-const pet4 = new Pet("Lola", 5, "Female", "Nail Trim", "Golden Doodle", "Dog");
-const pet5 = new Pet("Max", 1, "Male", "Vaccination", "Bulldog", "Dog");
-const pet6 = new Pet("Sir Flufferton", 7, "Male", "Grooming", "Egyptian Mau", "Cat");
-
-
-
-function registerPet(event){
-  event.preventDefault();
-
-  const name = petRegistrationForm.elements["petName"].value;
-  const age = petRegistrationForm.elements["petAge"].value;
-  const gender = petRegistrationForm.elements["petGender"].value;
-  const service = petRegistrationForm.elements["petService"].value;
-  const breed = petRegistrationForm.elements["petBreed"].value;
-  const type = petRegistrationForm.elements["petType"].value;
+// Call the function when the page loads
+displaySalonInfo();
   
-  const newPet = new Pet(name, age, gender, service, breed, type);
-  
-  console.log(newPet);
-  
-  displayPet(newPet);
+
+// Constructor
+function Pet(name, age, gender, breed, service, color) {
+  this.name = name;
+  this.age = age;
+  this.gender = gender;
+  this.breed = breed;
+  this.service = service;
+  this.color = color;
 }
 
+// Array to store pets
+let pets = [];
 
-// Display pets
+// Register form handler
+document.getElementById("petForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  // Get form values
+  const name = document.getElementById("petName").value;
+  const age = parseInt(document.getElementById("petAge").value);
+  const gender = document.getElementById("petGender").value;
+  const breed = document.getElementById("petBreed").value;
+  const service = document.getElementById("petService").value;
+  const color = document.getElementById("petColor").value;
+
+  // Create a new Pet
+  const pet = new Pet(name, age, gender, breed, service, color);
+
+  // Add pet to array
+  pets.push(pet);
+
+  // Update UI
+  displayPets();
+  updatePetCount();
+
+  // Clear form
+  document.getElementById("petForm").reset();
+});
+
+// Display pets in table
 function displayPets() {
-  const petList = document.getElementById("pet-list");
-  petList.innerHTML = "";
+  const tbody = document.getElementById("petTableBody");
+  tbody.innerHTML = "";
 
-  pets.forEach((pet) => {
-    petList.innerHTML += `
-      <p><strong>${pet.name}</strong> (${pet.gender}, ${pet.age} yrs) - ${pet.service} [${pet.breed}, ${pet.type}]</p>
-    `;
-    console.log(petList);
+  pets.forEach((pet, index) => {
+    const row = `<tr>
+      <td>${pet.name}</td>
+      <td>${pet.age}</td>
+      <td>${pet.gender}</td>
+      <td>${pet.breed}</td>
+      <td>${pet.service}</td>
+      <td>${pet.color}</td>
+      <td><button class="btn btn-danger btn-sm" onclick="deletePet(${index})">Delete</button></td>
+    </tr>`;
+    tbody.innerHTML += row;
   });
 }
 
+// Update pet count
+function updatePetCount() {
+  document.getElementById("petCount").innerText = pets.length;
+}
 
-const pets = [];
-
-
-
-// Create 3 starter pets
-pets.push(
-  new Pet("River", 1, "Male", "Half Husky, Half Corgi", "Grooming", "Dog"),
-  new Pet("Annie May", 10, "Female", "Jack Russel", "Vaccination", "Dog"),
-  new Pet("Jasper", 8, "Male", "Unknow Mix", "Nail Trim", "Dog")
-);
+// Delete pet
+function deletePet(index) {
+  pets.splice(index, 1);
   displayPets();
-  
-  petRegistrationForm.reset();
-
-function displayPet(pet){
-  PerformanceObserverEntryList.innerHTML += `
-  <div class="pet-card">
-
-    <h3> Name: ${pet.name} </h3>
-    <p> Age: ${pet.age} </p>
-    <p> Gender: ${pet.gender} </p>
-    <p> Service: ${pet.service} </p>
-    <p>Breed: ${pet.breed} </p>
-    <p>Type: ${pet.type} </p>
-
-  </div>
-  `;
+  updatePetCount();
 }
 
- function registerPet(event) {
-  // Get form values
-  let name = document.getElementById("petName").value;
-  let age = document.getElementById("petAge").value;
-  let gender = document.getElementById("petGender").value;
-  let breed = document.getElementById("petBreed").value;
-  let service = document.getElementById("petService").value;
-  let type = document.getElementById("petType").value;
+// Initialize with 3 pets (optional)
+pets.push(
+  new Pet("Buddy", 3, "Male", "Labrador", "Grooming", "Brown"),
+  new Pet("Mittens", 2, "Female", "Siamese", "Vaccination", "White"),
+  new Pet("Rocky", 4, "Male", "Bulldog", "Nail Trim", "Gray")
+);
+displayPets();
+updatePetCount();
 
-  console.log(displayPet);
 
-  // pet card container
 
-  let petCard = document.createElement("div");
-  petCard.className = "pet-card";
-
-  petList.innerHTML += `
-    <div class="pet-card">
-    <h3> ${newPet.name}</h3>
-    <p> ${newPet.age} </p>
-    <p> ${newPet.gender} </p>
-    <p> ${newPet.breed} </p>
-    <p> ${newPet.service} </p>
-    <p> ${newPet.type} </p>
-    </div>
-  
-  `;
-
-  // image element
-  let img = document.createElement("img");
-  img.src = `images/${name.toLowerCase()}.jpg`;
-  img.alt = `${name} the pet`;
-  img.className = "pet-image";
-
-  // paragraph for pet info
-  let petInfo = document.createElement("p");
-  petInfo.innerHTML = `<strong>${name}</strong> (${gender}, ${age} yrs) - ${service} [${breed}, ${type}]`;
-
-  // Append elements to pet card
-  petCard.appendChild(img);
-  petCard.appendChild(petInfo);
-
-  // Append pet card to the registered pets section
-  document.getElementById("registeredPets").appendChild(petCard);
-}
