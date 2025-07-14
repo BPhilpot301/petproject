@@ -1,3 +1,14 @@
+body{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('../images/images/background\ oet\ salon.webp')no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+}
+
+
+
 .site-header {
   display: flex;
   align-items: center;
@@ -76,6 +87,14 @@ button:hover {
 
 /* Individual Pet Card */
 
+section{
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  display: block;
+}
+
 form {
   background-color: #fff;
   padding: 20px;
@@ -127,6 +146,13 @@ input, select, button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
 }
 
 

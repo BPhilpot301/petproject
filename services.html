@@ -4,62 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-      <link rel="stylesheet" href="./style/assignment2.css">
+      <link rel="stylesheet" href="./style/service.css">
     <title>Services</title>
 </head>
 <body>
 
-  <form action="petServices">
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">The Pet Salon</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="register.html">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-        </div>
+    <h1>Services</h1>
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Pet Salon</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="index.html" href="index.html">Home</a>
+        <a class="nav-link" href="register.html">Register</a>
+        <a class="nav-link" href="about.html">About</a>
       </div>
-    </nav>
-  </form>
-  
-  <h1>Services</h1>
-      <form id="servicesRegistrationForm" class="container">
-        <div class="mb-3">
-          <label for="serviceName" class="form-label">Name</label>
-          <input type="text" id="serviceName" class="form-control" placeholder="Premium Bath">
+    </div>
+  </div>
+</nav>
+
+    <header class="header">
+        <img src="images/images/groom header.jpg" alt="Pet Salon Header" class="header-image">
+        <h1>Our Pet Salon Services</h1>
+    </header>
+
+    <main>
+        <div id="services-container" class="services-container">
         </div>
-
-        <div class="mb-3">
-          <label for="servieDescription" class="form-label">Description</label>
-          <input type="text" id="servieDescription" class="form-control" placeholder="Includes shampoo & Towel dry">
-        </div>
-
-        <div class="mb-3">
-          <label for="serviePrice" class="form-label">Price</label>
-          <input type="number" id="serviePrice" class="form-control" placeholder="$15.99" step="any">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Register Service</button>
-        <button type="reset" class="btn btn-secondary">Cancel</button>
+    </main>
 
 
-      </form>
-  
-  
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="./script/services.js"></script>
 </body>
 </html>
 
